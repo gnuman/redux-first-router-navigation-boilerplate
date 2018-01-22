@@ -77,45 +77,19 @@ export const Tabs = TabNavigator(
 )
 
 const AppTabs = ({ tabs, tabsStack, dispatch }) => (
-  <View id='FOOBAR' style={{ backgroundColor: '#2196f3' }}>
-    <View
-      style={{
-        position: 'absolute',
-        height,
-        width,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <Image
-        source={require('../images/logo.png')}
-        style={{ width: 200, height: 200, opacity: 0.5 }}
-      />
-    </View>
-
-    <ScrollView style={{}}>
-      <Tabs
-        screenProps={{ tabsStack, index: tabs.index }}
-        navigation={addNavigationHelpers({
-          navKey: 'tabs',
-          dispatch,
-          state: tabs
-        })}
-      />
-    </ScrollView>
-  </View>
+  <ScrollView style={{}}>
+    <Tabs
+      screenProps={{ tabsStack, index: tabs.index }}
+      navigation={addNavigationHelpers({
+        navKey: 'tabs',
+        dispatch,
+        state: tabs
+      })}
+    />
+  </ScrollView>
 )
 
 const mapStateToProps = ({ tabs, tabsStack }) => ({ tabs, tabsStack })
 const MainTabs = connect(mapStateToProps)(AppTabs)
-
-MainTabs.navigationOptions = ({ navigation }) => ({
-  headerLeft: (
-    <Button
-      title='DRAWER'
-      onPress={() => navigation.dispatch({ type: 'DRAWER_NOTIFICATIONS' })}
-    />
-  )
-})
 
 export default MainTabs
