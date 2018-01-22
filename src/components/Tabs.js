@@ -23,88 +23,77 @@ import AllContacts from './AllContacts'
 import Chats from './Chats'
 import Notifications from './Notifications'
 
-
 const { width, height } = Dimensions.get('window')
 
-
-
-export const TabsStack = StackNavigator({
-  Notifications: { screen: Notifications, path: 'tabs/notifications', navigationOptions: { title: 'Notifications' } },
-  Chat: { screen: Chats, path: 'tabs/chat/:user' }
-}, {
-  cardStyle: {
-    backgroundColor: 'transparent'
-  }
-})
-
-let Stack = ({ tabsStack, dispatch }) => (
-  <TabsStack
-    navigation={addNavigationHelpers({
-      navKey: 'tabsStack',
-      dispatch,
-      state: tabsStack
-    })}
-  />
+const Stack = () => (
+  <View>
+    <Text> This is an StackTab screen </Text>
+    <Text> This is an StackTab screen </Text>
+    <Text> This is an StackTab screen </Text>
+    <Text> This is an StackTab screen </Text>
+    <Text> This is an StackTab screen </Text>
+  </View>
 )
 
-
-Stack = connect(({ tabsStack }) => ({ tabsStack }))(Stack)
-
-Stack.navigationOptions = ({ screenProps }) => {
-  return {
-    tabBarVisible: screenProps.tabsStack.index > 0 ? true : true
-  }
-}
-
-
-
-export const Tabs = TabNavigator({
-  Recent: { screen: RecentChats },
-  All: { screen: AllContacts },
-  StackTabs: { screen: Stack }
-}, {
-  // initialRouteName: 'SubTabs',
-  animationEnabled: true,
-  swipeEnabled: true,
-  backBehavior: 'none',
-  // lazy: true,
-  navigationOptions: (options) => {
-    return {
+export const Tabs = TabNavigator(
+  {
+    Recent: { screen: RecentChats },
+    All: { screen: AllContacts },
+    StackTabs: { screen: Stack }
+  },
+  {
+    // initialRouteName: 'SubTabs',
+    animationEnabled: true,
+    swipeEnabled: true,
+    backBehavior: 'none',
+    // lazy: true,
+    navigationOptions: options => ({
       tabBarVisible: true,
       cardStyle: {
         backgroundColor: 'pink'
       }
-    }
-  },
-  tabBarComponent: TabBarTop,
-  tabBarPosition: 'bottom',
-  style: {
-    backgroundColor: 'black'
-  },
-  tabBarOptions: {
-    activeTintColor: 'blue',
-    inactiveTintColor: 'white',
-    indicatorStyle: {
-      backgroundColor: 'blue'
-    },
-    tabStyle: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
+    }),
+    tabBarComponent: TabBarTop,
+    tabBarPosition: 'bottom',
     style: {
-      backgroundColor: '#2196f3'
+      backgroundColor: 'black'
+    },
+    tabBarOptions: {
+      activeTintColor: 'blue',
+      inactiveTintColor: 'white',
+      indicatorStyle: {
+        backgroundColor: 'blue'
+      },
+      tabStyle: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+      },
+      style: {
+        backgroundColor: '#2196f3'
+      }
     }
   }
-})
+)
 
 const AppTabs = ({ tabs, tabsStack, dispatch }) => (
   <View id='FOOBAR' style={{ backgroundColor: '#2196f3' }}>
-    <View style={{ position: 'absolute', height, width, justifyContent: 'center', alignItems: 'center' }}>
-      <Image source={require('../images/logo.png')} style={{ width: 200, height: 200, opacity: .5 }} />
+    <View
+      style={{
+        position: 'absolute',
+        height,
+        width,
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <Image
+        source={require('../images/logo.png')}
+        style={{ width: 200, height: 200, opacity: 0.5 }}
+      />
     </View>
 
-    <ScrollView style={{ }}>
+    <ScrollView style={{}}>
       <Tabs
         screenProps={{ tabsStack, index: tabs.index }}
         navigation={addNavigationHelpers({
@@ -117,10 +106,8 @@ const AppTabs = ({ tabs, tabsStack, dispatch }) => (
   </View>
 )
 
-
 const mapStateToProps = ({ tabs, tabsStack }) => ({ tabs, tabsStack })
 const MainTabs = connect(mapStateToProps)(AppTabs)
-
 
 MainTabs.navigationOptions = ({ navigation }) => ({
   headerLeft: (
@@ -132,4 +119,3 @@ MainTabs.navigationOptions = ({ navigation }) => ({
 })
 
 export default MainTabs
-

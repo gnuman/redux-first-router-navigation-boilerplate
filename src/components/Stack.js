@@ -18,27 +18,27 @@ import {
   addNavigationHelpers
 } from 'react-navigation'
 
-import Tabs from './Tabs'
+import { Tabs } from './Tabs'
 import Chats from './Chats'
 
 const { width, height } = Dimensions.get('window')
 
-const Ti = () => <Text>FOO</Text>
-const Bar = () => <Text>Bar</Text>
-export const Stack = StackNavigator({
-  Home: {
-    screen: Tabs,
-    path: 'tabs/recent',
-    navigationOptions: () => ({
-      header: null
-    })
+export const Stack = StackNavigator(
+  {
+    Home: {
+      screen: Tabs,
+      path: 'tabs/recent',
+      navigationOptions: () => ({
+        header: null
+      })
+    }
   },
-  Chat: { screen: Chats, path: 'stack/chat/:user' }
-}, {
-  navigationOptions: ({ screenProps }) => ({
-    title: getTitle(screenProps.index)
-  })
-})
+  {
+    navigationOptions: ({ screenProps }) => ({
+      title: getTitle(screenProps.index)
+    })
+  }
+)
 
 const MainStack = ({ mainStack, tabs, dispatch }) => (
   <Stack
@@ -51,11 +51,8 @@ const MainStack = ({ mainStack, tabs, dispatch }) => (
   />
 )
 
-
-
 const mapStateToProps = ({ mainStack, tabs }) => ({ mainStack, tabs })
 export default connect(mapStateToProps)(MainStack)
-
 
 const getTitle = index => {
   switch (index) {

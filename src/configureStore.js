@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import { NavigationActions } from 'react-navigation'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import { connectRoutes, redirect } from 'redux-first-router'
@@ -7,7 +6,7 @@ import { connectRoutes, redirect } from 'redux-first-router'
 import reduxNavigation from 'redux-first-router-navigation'
 import createReducer from './reducers'
 import { Stack } from './components/Stack'
-import { Tabs, TabsStack } from './components/Tabs'
+import { Tabs } from './components/Tabs'
 import { Drawer, DrawerStack } from './components/Drawer'
 
 export default history => {
@@ -16,7 +15,7 @@ export default history => {
     {
       HOME: { path: '/tabs/recent', navKey: 'home' },
       CONTACTS: { path: '/tabs/contacts', navKey: 'contacts' },
-      NOTIFICATIONS: { path: '/tabs/notifications', navKey: 'tabsStack' },
+
       CHAT: { path: '/tabs/chat/:user', navKey: 'tabsStack' },
 
       DRAWER_NOTIFICATIONS: {
@@ -36,7 +35,6 @@ export default history => {
         drawer: Drawer,
         drawerStack: DrawerStack,
         tabs: Tabs,
-        tabsStack: TabsStack,
         mainStack: Stack
       })
     }
