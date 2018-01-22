@@ -18,7 +18,7 @@ import {
   addNavigationHelpers
 } from 'react-navigation'
 
-import { Tabs } from './Tabs'
+import Tabs from './Tabs'
 import Chats from './Chats'
 
 const { width, height } = Dimensions.get('window')
