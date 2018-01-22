@@ -31,6 +31,7 @@ export default history => {
     },
     {
       history,
+      initialEntries: initialPath,
       navigators: reduxNavigation({
         drawer: Drawer,
         drawerStack: DrawerStack,
