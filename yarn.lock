@@ -4769,11 +4769,12 @@ redux-first-router-scroll-container-native@^1.1.1:
   dependencies:
     prop-types "^15.5.8"
 
-redux-first-router@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/redux-first-router/-/redux-first-router-1.4.2.tgz#f625bc73b1974cef7bdd61b957ba7e0104d24605"
+redux-first-router@rudy:
+  version "0.0.4-rudy"
+  resolved "https://registry.yarnpkg.com/redux-first-router/-/redux-first-router-0.0.4-rudy.tgz#b735563d73e940f4a421e18ab23c1535cef9a457"
   dependencies:
-    path-to-regexp "^1.7.0"
+    rudy-history "^1.0.0"
+    rudy-match-path "^0.3.0"
 
 redux-thunk@^2.2.0:
   version "2.2.0"
@@ -4961,6 +4962,10 @@ resolve-pathname@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/resolve-pathname/-/resolve-pathname-2.1.0.tgz#e8358801b86b83b17560d4e3c382d7aef2100944"
 
+resolve-pathname@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/resolve-pathname/-/resolve-pathname-2.2.0.tgz#7e9ae21ed815fd63ab189adeee64dc831eefa879"
+
 resolve@1.1.7:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
@@ -5008,6 +5013,22 @@ rimraf@~2.2.6:
 rndm@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/rndm/-/rndm-1.2.0.tgz#f33fe9cfb52bbfd520aa18323bc65db110a1b76c"
+
+rudy-history@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rudy-history/-/rudy-history-1.0.0.tgz#6e716bfea7b6dc00768a9423ace964fd0f168127"
+  dependencies:
+    invariant "^2.2.1"
+    loose-envify "^1.2.0"
+    resolve-pathname "^2.2.0"
+    value-equal "^0.4.0"
+    warning "^3.0.0"
+
+rudy-match-path@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/rudy-match-path/-/rudy-match-path-0.3.0.tgz#c90e23caac500f244d5e4ab448e2725f1254e2e8"
+  dependencies:
+    path-to-regexp "^1.7.0"
 
 run-async@^0.1.0:
   version "0.1.0"
@@ -5801,6 +5822,10 @@ validate-npm-package-license@^3.0.1:
 value-equal@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/value-equal/-/value-equal-0.2.1.tgz#c220a304361fce6994dbbedaa3c7e1a1b895871d"
+
+value-equal@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/value-equal/-/value-equal-0.4.0.tgz#c5bdd2f54ee093c04839d71ce2e4758a6890abc7"
 
 vary@~1.0.1:
   version "1.0.1"

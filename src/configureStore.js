@@ -13,7 +13,6 @@ import { Drawer, DrawerStack } from './components/Drawer'
 export default history => {
   const initialPath = history.entries[0].pathname
   const { reducer, middleware, enhancer } = connectRoutes(
-    history,
     {
       HOME: { path: '/tabs/recent', navKey: 'home' },
       CONTACTS: { path: '/tabs/contacts', navKey: 'contacts' },
@@ -32,6 +31,7 @@ export default history => {
       JAMES: '/tabs/recent/jam/:user'
     },
     {
+      history,
       navigators: reduxNavigation({
         drawer: Drawer,
         drawerStack: DrawerStack,
